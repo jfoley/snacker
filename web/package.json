@@ -1,0 +1,24 @@
+{
+  "name": "snacker-web",
+  "version": "1.0.0",
+  "description": "The web interface for snacker",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules/.bin/babel-node node_modules/.bin/cucumber.js",
+    "debug": "node_modules/.bin/babel-node --debug-brk node_modules/.bin/cucumber.js"
+  },
+  "author": "John Foley",
+  "license": "MIT",
+  "devDependencies": {
+    "persistance": "file:../persistance",
+
+    "babel": "latest",
+    "express": "latest",
+    "express-handlebars": "latest",
+    "webdriverio": "latest",
+    "chromedriver": "latest",
+    "chai": "latest",
+    "chai-as-promised": "latest",
+    "cucumber": "latest"
+  }
+}
