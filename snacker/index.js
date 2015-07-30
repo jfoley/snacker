@@ -1,4 +1,4 @@
-import UseCases from './lib/use-cases';
+import UseCases from './lib/use-cases/use-cases';
 
 export {
   UseCases
