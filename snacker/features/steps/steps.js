@@ -1,32 +1,30 @@
 import {UseCases} from '../../index';
-import {MockObserver} from '../support/mock-observer';
 import {MockMeetingRepo} from '../support/mock-meeting-repo';
+
 import chai from 'chai';
 let expect = chai.expect;
 
 export default function () {
-  let observer = new MockObserver();
-  let meetingAttributes = {
-    name: 'Hungry Coders'
-  };
   let meetingRepo = new MockMeetingRepo();
+  let meetingsPresented;
 
   this.Given(/^there is a meeting$/, () => {
-    new UseCases.CreateMeeting(
-      observer,
-      meetingAttributes,
-      meetingRepo
-    ).execute();
+    UseCases.CreateMeeting(
+      meetingRepo,
+      { name: 'meeting-name' },
+      () => {},
+      this.fail
+    )
   });
 
   this.When(/^I view meetings$/, () => {
     new UseCases.PresentMeetings(
-      observer,
-      meetingRepo
-    ).execute();
+      meetingRepo,
+      (meetings) => { meetingsPresented = meetings }
+    );
   });
 
   this.Then(/^I should see that meeting$/, () => {
-    expect(observer.meetingsPresented).to.eql(['Hungry Coders'])
+    expect(meetingsPresented).to.eql(['meeting-name'])
   });
 }
