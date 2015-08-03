@@ -1,11 +1,15 @@
-export default class PresentMeetings {
-  constructor(observer, meetingRepo) {
-    this.observer = observer;
+export default function(meetingRepo, callback) {
+  let useCase = new PresentMeetings(meetingRepo);
+  return useCase.execute(callback);
+}
+
+class PresentMeetings {
+  constructor(meetingRepo) {
     this.meetingRepo = meetingRepo;
   }
 
-  execute() {
+  execute(callback) {
     let meetings = this.meetingRepo.allMeetings();
-    this.observer.presentMeetings(meetings);
+    callback(meetings);
   }
 }
