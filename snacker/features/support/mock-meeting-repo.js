@@ -10,4 +10,8 @@ export class MockMeetingRepo {
   allMeetings() {
     return this.meetings;
   }
+
+  meetingCount() {
+    return this.meetings.length;
+  }
 }
