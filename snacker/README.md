@@ -25,3 +25,11 @@ unlikely to work- instead run `babel-node somefile.js`. Likewise, other javascri
 tools that have a CLI must be invoked via babel. For example, to run the cucumber
 specs, you must run something like `babel-node /path/to/cucumber.js`. Shortcuts
 for the common commands can be found in the package.json file.
+
+
+## WAT
+
+Use Cases: the boundary of your system.
+
+Entities: business logic for domain objects.
+These should not leak out of use cases.

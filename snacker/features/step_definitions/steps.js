@@ -4,10 +4,14 @@ import {MockRegistrationRepo} from '../support/mock-registration-repo';
 import {MockUserRepo} from '../support/mock-user-repo';
 import {MockUser} from '../support/mock-user';
 
+// import CreateMeetingSteps from './create_meeting_steps';
+
 import chai from 'chai';
 let expect = chai.expect;
 
 export default function () {
+  // CreateMeetingSteps.call(this);
+
   let mockUser = new MockUser();
   let meetingRepo = new MockMeetingRepo();
   let registrationRepo = new MockRegistrationRepo();
@@ -34,6 +38,14 @@ export default function () {
   this.Then(/^I should see that meeting$/, () => {
     expect(meetingsPresented).to.eql(['meeting-name'])
   });
+
+  // this.When(/^I create a meeting called "([^"]*)"$/, (meetingName) => {
+  //   meetingRepo.createMeeting({name: meetingName});
+  // });
+  //
+  // this.Then(/^I see a meeting called "([^"]*)"$/, (meetingName) => {
+  //   expect(meetingsPresented).to.eql(['meeting-name'])
+  // });
 
   this.When(/^I say that I am going to attend that meeting$/, () => {
     let meetingToAttend = {name: "meeting-name"};

@@ -14,9 +14,11 @@ class CreateMeeting {
   execute(success, fail) {
     let meeting = new Meeting(this.meetingAttributes);
     if(meeting.isValid()) {
+      console.log("success");
       this.meetingRepo.createMeeting(this.meetingAttributes);
       success(this.meetingAttributes);
     } else {
+      console.log("fail: ", meeting.validationErrors());
       fail(meeting.validationErrors());
     }
   }
