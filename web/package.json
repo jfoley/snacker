@@ -22,6 +22,7 @@
     "chromedriver": "latest",
     "chai": "latest",
     "chai-as-promised": "latest",
-    "cucumber": "latest"
+    "cucumber": "latest",
+    "lodash": "latest"
   }
 }
