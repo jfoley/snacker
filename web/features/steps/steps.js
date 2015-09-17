@@ -2,7 +2,7 @@ import Webdriverio from 'webdriverio';
 import chai from 'chai';
 let expect = chai.expect;
 
-import MeetingRepo from '../../../persistance/meeting-repo';
+import MeetingRepo from '../../../persistence/meeting-repo';
 import WebServer from '../../index';
 
 export default function () {
