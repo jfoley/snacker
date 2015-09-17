@@ -9,9 +9,12 @@
   },
   "author": "John Foley",
   "license": "MIT",
-  "devDependencies": {
-    "persistance": "file:../persistance",
+  "dependencies" : {
+    "persistence": "latest",
+    "snacker": "latest"
+  },
 
+  "devDependencies": {
     "babel": "latest",
     "express": "latest",
     "express-handlebars": "latest",
