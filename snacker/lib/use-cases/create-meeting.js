@@ -1,3 +1,4 @@
+import _ from "lodash";
 import Meeting from '../entities/meeting';
 
 export default function(meetingRepo, meetingAttributes, success, fail) {
@@ -17,7 +18,7 @@ class CreateMeeting {
       this.meetingRepo.createMeeting(this.meetingAttributes);
       success(this.meetingAttributes);
     } else {
-      fail(meeting.validationErrors());
+      fail(_.extend(this.meetingAttributes, {errors: meeting.validationErrors()}));
     }
   }
 }

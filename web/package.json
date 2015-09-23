@@ -9,20 +9,20 @@
   },
   "author": "John Foley",
   "license": "MIT",
-  "dependencies" : {
+  "dependencies": {
+    "body-parser": "latest",
     "persistence": "latest",
     "snacker": "latest"
   },
-
   "devDependencies": {
     "babel": "latest",
-    "express": "latest",
-    "express-handlebars": "latest",
-    "webdriverio": "latest",
-    "chromedriver": "latest",
     "chai": "latest",
     "chai-as-promised": "latest",
+    "chromedriver": "latest",
     "cucumber": "latest",
-    "lodash": "latest"
+    "express": "latest",
+    "express-handlebars": "latest",
+    "lodash": "latest",
+    "webdriverio": "latest"
   }
 }

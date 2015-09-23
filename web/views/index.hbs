@@ -12,5 +12,14 @@
     {{/each}}
   </ul>
 
+  <h2>New Meeting</h2>
+  {{#if meeting.errors}}
+    something went wrong
+  {{/if}}
+  <form action="/meetings" method="post">
+    <label for="meetingName">Name:</label>
+    <input type="text" name="meetingName" value="{{meeting.name}}">
+    <input type="submit">Create Meeting</input>
+  </form>
 </body>
 </html>

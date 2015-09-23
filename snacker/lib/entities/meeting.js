@@ -14,8 +14,14 @@ export default class Meeting {
   }
 
   validationErrors() {
+    let errors = {
+      name: []
+    };
+
     if(_.isEmpty(this.name)) {
-      return {name: 'required'};
+      errors.name.push("required");
     }
+
+    return errors;
   }
 }
