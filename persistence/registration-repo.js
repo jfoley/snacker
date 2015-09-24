@@ -21,7 +21,7 @@ export default class RegistrationRepo {
   }
 
   findRegistrationsByMeetingName(meetingName) {
-    let registrations = _.where(this.registrations, (r) => r.meetingName === meetingName);
+    let registrations = _.select(this.registrations, (r) => r.meetingName === meetingName);
 
     return registrations;
   }
