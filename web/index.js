@@ -13,33 +13,32 @@ app.engine('.hbs', ExpressHbs({ extname: '.hbs'}));
 app.set('view engine', '.hbs');
 app.use(BodyParser.urlencoded());
 
-export default {
-  run() {
-    let meetingRepo = new Repos.MeetingRepo();
-    let registrationRepo = new Repos.RegistrationRepo();
-    meetingRepo.createMeeting({name: "yo"});
-    registrationRepo.createRegistration("yo", "foley");
-    registrationRepo.createRegistration("yo", "tim");
+export default class SnackerServer {
+  constructor() {
+    this.Repos = {
+      meetingRepo: new Repos.MeetingRepo(),
+      registrationRepo: new Repos.RegistrationRepo(),
+    };
+  }
 
+  run() {
     app.get('/', (req, res) => {
-      UseCases.PresentMeetings(meetingRepo, (meetings) => {
+      UseCases.PresentMeetings(this.Repos.meetingRepo, (meetings) => {
         res.render('index', { meetings: meetings });
       });
     });
 
     app.post('/meetings', (req, res) => {
       let meetingAttributes = { name: req.body.meetingName };
-      UseCases.CreateMeeting(meetingRepo, meetingAttributes, (newMeeting) => {
+      UseCases.CreateMeeting(this.Repos.meetingRepo, meetingAttributes, (newMeeting) => {
         res.redirect("/");
       }, (meeting) => {
         res.render('index', { meetings: [], meeting: meeting });
       });
     });
 
-    app.get('/attendees', (req, res) => {
-      let meetingName = "yo";
-
-      UseCases.PresentAttendees(registrationRepo, {name: meetingName}, (attendees) => {
+    app.get('/attendees/:meetingName', (req, res) => {
+      UseCases.PresentAttendees(this.Repos.registrationRepo, {name: req.params.meetingName}, (attendees) => {
         res.render('attendees', { attendees: attendees });
       });
     });
