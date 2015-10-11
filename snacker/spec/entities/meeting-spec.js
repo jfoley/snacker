@@ -20,7 +20,7 @@ describe('meeting', () => {
       it('returns an error object', () => {
         let meeting = new Meeting({name: undefined});
 
-        expect(meeting.validationErrors()).toEqual({name: 'required'});
+        expect(meeting.validationErrors()).toEqual({name: ['required']});
       });
     });
   });

@@ -1,4 +1,4 @@
-import {UseCases} from '../../index';
+import Snacker from '../../index';
 import {MockMeetingRepo} from '../support/mock-meeting-repo';
 import {MockRegistrationRepo} from '../support/mock-registration-repo';
 import {MockUserRepo} from '../support/mock-user-repo';
@@ -8,16 +8,17 @@ import chai from 'chai';
 let expect = chai.expect;
 
 export default function () {
-  let mockUser = new MockUser();
-  let meetingRepo = new MockMeetingRepo();
-  let registrationRepo = new MockRegistrationRepo();
-  let userRepo = new MockUserRepo();
+  let snacker = new Snacker({
+    meetingRepo: new MockMeetingRepo(),
+    registrationRepo: new MockRegistrationRepo(),
+    userRepo: new MockUserRepo(),
+  });
+
   let meetingsPresented;
   let attendeesPresented;
 
   this.Given(/^there is a meeting$/, () => {
-    UseCases.CreateMeeting(
-      meetingRepo,
+    snacker.useCases.createMeeting(
       { name: 'meeting-name' },
       () => {},
       this.fail
@@ -25,8 +26,7 @@ export default function () {
   });
 
   this.When(/^I view meetings$/, () => {
-    new UseCases.PresentMeetings(
-      meetingRepo,
+    snacker.useCases.presentMeetings(
       (meetings) => { meetingsPresented = meetings }
     );
   });
@@ -39,17 +39,13 @@ export default function () {
     let meetingToAttend = {name: "meeting-name"};
     let user = {name: "Brian Butz"};
 
-    UseCases.RegisterForMeeting(
-      meetingRepo,
-      userRepo,
-      registrationRepo,
+    snacker.useCases.registerForMeeting(
       meetingToAttend,
       user,
       (registration) => {  }
     );
 
-    UseCases.PresentAttendees(
-      registrationRepo,
+    snacker.useCases.presentAttendees(
       meetingToAttend,
       (attendees) => { attendeesPresented = attendees; }
     );

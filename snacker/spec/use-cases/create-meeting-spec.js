@@ -43,9 +43,9 @@ describe('CreateMeeting', () => {
       });
     });
 
-    it('calls the fail callback with validation errors', () => {
+    it('calls the fail callback with the passed in object overlayed with the validation errors', () => {
       useCase = CreateMeeting(meetingRepo, meetingAttributes, fail, (errors) => {
-        expect(errors).toEqual({name: 'required'});
+        expect(errors).toEqual({name: null, errors: {name: ['required']}});
       });
     });
   });
