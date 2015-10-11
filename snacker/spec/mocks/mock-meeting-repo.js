@@ -1,12 +1,17 @@
 import _ from "lodash";
+import Meeting from "snacker/entities/meeting";
+
+export class MeetingNotFoundError {
+
+}
 
 export default class MockMeetingRepo {
   constructor() {
     this.meetings = [];
   }
 
-  createMeeting(meeting) {
-    this.meetings.push(meeting.name);
+  createMeeting(meetingAttributes) {
+    this.meetings.push(meetingAttributes);
   }
 
   allMeetings() {

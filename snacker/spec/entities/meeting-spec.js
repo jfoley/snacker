@@ -1,3 +1,5 @@
+import 'spec/support/spec-helper';
+
 import Meeting from 'snacker/entities/meeting';
 
 describe('meeting', () => {
@@ -6,13 +8,13 @@ describe('meeting', () => {
       it('is valid when the name is present', () => {
         let meeting = new Meeting({name: 'meeting-name'});
 
-        expect(meeting.isValid()).toBeTruthy();
+        expect(meeting.isValid()).to.be.true;
       });
 
       it('is not valid when the name is missing', () => {
         let meeting = new Meeting({name: undefined});
 
-        expect(meeting.isValid()).toBeFalsy();
+        expect(meeting.isValid()).to.be.false;
       });
     });
 
@@ -20,7 +22,7 @@ describe('meeting', () => {
       it('returns an error object', () => {
         let meeting = new Meeting({name: undefined});
 
-        expect(meeting.validationErrors()).toEqual({name: ['required']});
+        expect(meeting.validationErrors()).to.eql({name: ['required']});
       });
     });
   });

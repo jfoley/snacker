@@ -1,3 +1,7 @@
+import 'spec/support/spec-helper';
+
+import _ from "lodash";
+
 import PresentMeetings from 'snacker/use-cases/present-meetings';
 import MockMeetingRepo from 'spec/mocks/mock-meeting-repo';
 
@@ -14,7 +18,7 @@ describe('PresentMeetings', () => {
     meetingRepo.createMeeting({ name: 'meeting-two' });
 
     PresentMeetings(meetingRepo, (meetings) => {
-      expect(meetings).toContain('meeting-one', 'meeting-two');
+      expect(_.pluck(meetings, 'name')).to.contain('meeting-one', 'meeting-two');
       done();
     });
   });
