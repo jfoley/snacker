@@ -1,5 +1,6 @@
 import _ from "lodash";
-import Meeting from '../entities/meeting';
+
+import Meeting from 'snacker/entities/meeting';
 
 export default function(meetingRepo, meetingAttributes, success, fail) {
   let useCase = new CreateMeeting(meetingRepo, meetingAttributes);

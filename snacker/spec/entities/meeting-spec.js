@@ -1,4 +1,4 @@
-import Meeting from '../../lib/entities/meeting';
+import Meeting from 'snacker/entities/meeting';
 
 describe('meeting', () => {
   describe('validation', () => {

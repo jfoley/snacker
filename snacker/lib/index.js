@@ -1,4 +1,4 @@
-import UseCases from './lib/use-cases/use-cases';
+import UseCases from 'snacker/use-cases/use-cases';
 import _ from "lodash";
 
 export default class Snacker {

@@ -1,8 +1,8 @@
-import Snacker from '../../index';
-import {MockMeetingRepo} from '../support/mock-meeting-repo';
-import {MockRegistrationRepo} from '../support/mock-registration-repo';
-import {MockUserRepo} from '../support/mock-user-repo';
-import {MockUser} from '../support/mock-user';
+import Snacker from 'snacker';
+import MockMeetingRepo from 'spec/mocks/mock-meeting-repo';
+import MockRegistrationRepo from 'spec/mocks/mock-registration-repo';
+import MockUserRepo from 'spec/mocks/mock-user-repo';
+import MockUser from 'spec/mocks/mock-user';
 
 import chai from 'chai';
 let expect = chai.expect;

@@ -1,5 +1,5 @@
-import {MockMeetingRepo} from '../../features/support/mock-meeting-repo';
-import PresentMeetings from '../../lib/use-cases/present-meetings';
+import PresentMeetings from 'snacker/use-cases/present-meetings';
+import MockMeetingRepo from 'spec/mocks/mock-meeting-repo';
 
 describe('PresentMeetings', () => {
   let useCase;

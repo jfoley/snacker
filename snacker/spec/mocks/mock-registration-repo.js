@@ -1,7 +1,7 @@
 import Registration from 'snacker/entities/registration';
 import _ from "lodash";
 
-export class MockRegistrationRepo {
+export default class MockRegistrationRepo {
   constructor() {
     this.registrations = [];
   }

@@ -1,5 +1,5 @@
-import {MockMeetingRepo} from '../../features/support/mock-meeting-repo';
-import CreateMeeting from '../../lib/use-cases/create-meeting';
+import CreateMeeting from 'snacker/use-cases/create-meeting';
+import MockMeetingRepo from 'spec/mocks/mock-meeting-repo';
 
 describe('CreateMeeting', () => {
   describe('when the meeting attributes are valid', () => {
